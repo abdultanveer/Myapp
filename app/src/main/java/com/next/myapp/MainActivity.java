@@ -15,6 +15,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void mobiClickHandler(View view) {
-        Toast.makeText(this, "login successful", Toast.LENGTH_SHORT).show();
+
+        switch (view.getId()){
+            case R.id.buttonlogin:
+                Toast.makeText(this, "login successful", Toast.LENGTH_SHORT).show();
+
+                break;
+            case R.id.buttoncancel:
+                Toast.makeText(this, "cancelled", Toast.LENGTH_SHORT).show();
+
+                break;
+        }
     }
 }
