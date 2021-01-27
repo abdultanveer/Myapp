@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -20,7 +21,9 @@ public class MainActivity extends AppCompatActivity {
         switch (view.getId()){
             case R.id.buttonlogin:
                 Intent hIntent = new Intent(MainActivity.this,HomeActivity.class);
-                String name = "shubam";
+                EditText nameEditText;
+                nameEditText = findViewById(R.id.etPersonName);
+                String name = nameEditText.getText().toString();
                 hIntent.putExtra("studentsname",name);
                 startActivity(hIntent);
                 break;
