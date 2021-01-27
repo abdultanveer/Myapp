@@ -19,8 +19,9 @@ public class MainActivity extends AppCompatActivity {
 
         switch (view.getId()){
             case R.id.buttonlogin:
-              //  Toast.makeText(this, "login successful", Toast.LENGTH_SHORT).show();
                 Intent hIntent = new Intent(MainActivity.this,HomeActivity.class);
+                String name = "shubam";
+                hIntent.putExtra("studentsname",name);
                 startActivity(hIntent);
                 break;
             case R.id.buttoncancel:
