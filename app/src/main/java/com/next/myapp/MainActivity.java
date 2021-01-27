@@ -2,6 +2,7 @@ package com.next.myapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -18,8 +19,9 @@ public class MainActivity extends AppCompatActivity {
 
         switch (view.getId()){
             case R.id.buttonlogin:
-                Toast.makeText(this, "login successful", Toast.LENGTH_SHORT).show();
-
+              //  Toast.makeText(this, "login successful", Toast.LENGTH_SHORT).show();
+                Intent hIntent = new Intent(MainActivity.this,HomeActivity.class);
+                startActivity(hIntent);
                 break;
             case R.id.buttoncancel:
                 Toast.makeText(this, "cancelled", Toast.LENGTH_SHORT).show();

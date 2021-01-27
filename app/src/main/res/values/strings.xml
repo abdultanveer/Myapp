@@ -3,4 +3,5 @@
     <string name="inputname">enter name</string>
     <string name="inputPwd">enter password</string>
     <string name="remPwd">remember password</string>
+    <string name="login">login</string>
 </resources>

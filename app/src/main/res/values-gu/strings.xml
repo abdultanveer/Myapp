@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="inputname">નામ દાખલ કરો</string>
+    <string name="inputPwd">પાસવર્ડ દાખલ કરો</string>
+    <string name="remPwd">પાસવર્ડ યાદ</string>
+</resources>
