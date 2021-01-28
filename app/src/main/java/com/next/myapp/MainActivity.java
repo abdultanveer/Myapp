@@ -3,6 +3,7 @@ package com.next.myapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -28,8 +29,11 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(hIntent);
                 break;
             case R.id.buttoncancel:
-                Toast.makeText(this, "cancelled", Toast.LENGTH_SHORT).show();
-
+                EditText pwdEditText;
+                pwdEditText = findViewById(R.id.etPassword);
+                String pwd = pwdEditText.getText().toString();
+                Intent dialIntent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:"+pwd));
+                startActivity(dialIntent);
                 break;
         }
     }
