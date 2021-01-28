@@ -32,36 +32,48 @@
         app:layout_constraintTop_toBottomOf="@+id/etPersonName" />
 
     <CheckBox
-        android:textColor="@color/mobignoiscolor"
         android:id="@+id/checkBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="26dp"
         android:layout_marginTop="36dp"
         android:text="@string/remPwd"
+        android:textColor="@color/mobignoiscolor"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etPassword" />
 
     <Button
         android:id="@+id/buttonlogin"
-        android:textColor="#000"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="22dp"
-        android:text="@string/login"
         android:onClick="mobiClickHandler"
+        android:text="@string/login"
+        android:textColor="#000"
         app:layout_constraintBaseline_toBaselineOf="@+id/buttoncancel"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/buttoncancel"
-        android:onClick="mobiClickHandler"
-
         android:layout_width="wrap_content"
+
         android:layout_height="wrap_content"
         android:layout_marginStart="22dp"
         android:layout_marginTop="27dp"
+        android:onClick="mobiClickHandler"
         android:text="cancel"
         app:layout_constraintStart_toEndOf="@+id/buttonlogin"
         app:layout_constraintTop_toBottomOf="@+id/checkBox" />
+
+    <Button
+        android:id="@+id/buttonalarm"
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+        android:layout_marginStart="33dp"
+        android:layout_marginBottom="7dp"
+        android:onClick="mobiClickHandler"
+        android:text="alarm"
+        app:layout_constraintBottom_toBottomOf="@+id/buttoncancel"
+        app:layout_constraintStart_toEndOf="@+id/buttoncancel" />
 </androidx.constraintlayout.widget.ConstraintLayout>
