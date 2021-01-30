@@ -12,10 +12,53 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
+    /**
+     * memory is getting allocated in the ram for this activity so it is getting created
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Toast.makeText(this, "created", Toast.LENGTH_SHORT).show();
+    }
+
+    /**
+     * the activity is starting i.e v can see and tap button on the screen
+     */
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Toast.makeText(this, "started", Toast.LENGTH_SHORT).show();
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Toast.makeText(this, "resumed", Toast.LENGTH_SHORT).show();
+
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Toast.makeText(this, "paused", Toast.LENGTH_SHORT).show();
+
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Toast.makeText(this, "stopped", Toast.LENGTH_SHORT).show();
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Toast.makeText(this, "destroyed", Toast.LENGTH_SHORT).show();
+
     }
 
     public void mobiClickHandler(View view) {
