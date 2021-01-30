@@ -6,12 +6,13 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.AlarmClock;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-
+    public static String TAG = MainActivity.class.getSimpleName();
     /**
      * memory is getting allocated in the ram for this activity so it is getting created
      * @param savedInstanceState
@@ -20,7 +21,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toast.makeText(this, "created", Toast.LENGTH_SHORT).show();
+       // Toast.makeText(this, "created", Toast.LENGTH_SHORT).show();
+        Log.i(TAG,"i am in oncreate");
+
     }
 
     /**
@@ -29,35 +32,35 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        Toast.makeText(this, "started", Toast.LENGTH_SHORT).show();
+        Log.i(TAG,"i am in onstart");
 
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        Toast.makeText(this, "resumed", Toast.LENGTH_SHORT).show();
+        Log.i(TAG,"i am in onresume");
 
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        Toast.makeText(this, "paused", Toast.LENGTH_SHORT).show();
+        Log.i(TAG,"i am in onpause");
 
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        Toast.makeText(this, "stopped", Toast.LENGTH_SHORT).show();
+        Log.i(TAG,"i am in onstop");
 
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        Toast.makeText(this, "destroyed", Toast.LENGTH_SHORT).show();
+        Log.i(TAG,"i am in ondestroy");
 
     }
 
