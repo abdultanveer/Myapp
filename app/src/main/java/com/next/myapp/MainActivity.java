@@ -23,8 +23,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
        // Toast.makeText(this, "created", Toast.LENGTH_SHORT).show();
-        Log.i(TAG,"i am in oncreate");
-
+        Log.i(TAG,"i am in oncreate");// i = info
     }
 
     /**
@@ -33,28 +32,28 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        Log.i(TAG,"i am in onstart");
+        Log.v(TAG,"i am in onstart"); //v = verbose
 
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        Log.i(TAG,"i am in onresume");
+        Log.w(TAG,"i am in onresume");//w = warning
 
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        Log.i(TAG,"i am in onpause");
+        Log.e(TAG,"i am in onpause"); //e = error
 
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        Log.i(TAG,"i am in onstop");
+        Log.d(TAG,"i am in onstop"); // d= debug
 
     }
 
