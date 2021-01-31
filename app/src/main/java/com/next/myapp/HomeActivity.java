@@ -11,10 +11,12 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        String name = getIntent().getExtras().getString("studentsname");
+        throw new RuntimeException("Test Crash"); // Force a crash
+
+        /*String name = getIntent().getExtras().getString("student");
 
         TextView nameTextView;
         nameTextView = findViewById(R.id.textViewhome);
-        nameTextView.setText(name);
+        nameTextView.setText(name);*/
     }
 }

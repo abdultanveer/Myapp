@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.provider.AlarmClock;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -65,10 +66,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void mobiClickHandler(View view) {
+        Log.i(TAG,"i am in clickhandler");
 
         switch (view.getId()){
             case R.id.buttonlogin:
-                Intent hIntent = new Intent(MainActivity.this,HomeActivity.class);
+                Intent hIntent = new Intent(MainActivity.this,HomeActivity.class);//breakpoint -- please stop the execution when you reach this point
                 EditText nameEditText;
                 nameEditText = findViewById(R.id.etPersonName);
                 String name = nameEditText.getText().toString();
