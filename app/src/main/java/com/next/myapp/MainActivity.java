@@ -75,6 +75,7 @@ public class MainActivity extends AppCompatActivity {
                 String name = nameEditText.getText().toString();
                 hIntent.putExtra("studentsname",name);
                 startActivity(hIntent);
+
                 break;
             case R.id.buttoncancel:
                 EditText pwdEditText;

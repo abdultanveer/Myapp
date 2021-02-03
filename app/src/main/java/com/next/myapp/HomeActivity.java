@@ -11,8 +11,8 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-
         add(10,20);
+       // throw new RuntimeException("onclick");
 
         /*String name = getIntent().getExtras().getString("student");
 
