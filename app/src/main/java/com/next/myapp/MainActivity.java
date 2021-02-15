@@ -12,8 +12,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnFocusChangeListener {
     public static String TAG = MainActivity.class.getSimpleName();
+    EditText etPersonname;
+    EditText etPassword;
     /**
      * memory is getting allocated in the ram for this activity so it is getting created
      * @param savedInstanceState
@@ -24,6 +26,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
        // Toast.makeText(this, "created", Toast.LENGTH_SHORT).show();
         Log.i(TAG,"i am in oncreate");// i = info
+        etPersonname = findViewById(R.id.etPersonName);
+        etPersonname.setOnFocusChangeListener(this);
+/*
+        Button mButton;
+        mButton = new Button(this);
+        mButton.setText("login");*/
     }
 
     /**
@@ -99,5 +107,17 @@ public class MainActivity extends AppCompatActivity {
         if (intent.resolveActivity(getPackageManager()) != null) {
             startActivity(intent);
         }
+    }
+
+    @Override
+    public void onFocusChange(View view, boolean isFocussed) {
+        if(isFocussed){
+            Toast.makeText(this, "is focussed", Toast.LENGTH_SHORT).show();
+        }
+        else{
+            Toast.makeText(this, "lost focus", Toast.LENGTH_SHORT).show();
+
+        }
+
     }
 }
