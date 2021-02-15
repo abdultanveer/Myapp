@@ -8,14 +8,17 @@ import android.os.Bundle;
 import android.provider.AlarmClock;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity implements View.OnFocusChangeListener {
+public class MainActivity extends AppCompatActivity implements View.OnFocusChangeListener, AdapterView.OnItemSelectedListener {
     public static String TAG = MainActivity.class.getSimpleName();
     EditText etPersonname;
     EditText etPassword;
+    Spinner spinner;
     /**
      * memory is getting allocated in the ram for this activity so it is getting created
      * @param savedInstanceState
@@ -28,6 +31,8 @@ public class MainActivity extends AppCompatActivity implements View.OnFocusChang
         Log.i(TAG,"i am in oncreate");// i = info
         etPersonname = findViewById(R.id.etPersonName);
         etPersonname.setOnFocusChangeListener(this);
+        spinner = findViewById(R.id.spinner);
+        spinner.setOnItemSelectedListener(this);
 /*
         Button mButton;
         mButton = new Button(this);
@@ -118,6 +123,17 @@ public class MainActivity extends AppCompatActivity implements View.OnFocusChang
             Toast.makeText(this, "lost focus", Toast.LENGTH_SHORT).show();
 
         }
+
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
+        String itemSelected = adapterView.getItemAtPosition(position).toString();
+        Toast.makeText(this, itemSelected, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> adapterView) {
 
     }
 }
