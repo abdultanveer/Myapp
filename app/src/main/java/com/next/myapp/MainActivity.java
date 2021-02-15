@@ -9,8 +9,10 @@ import android.provider.AlarmClock;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -19,6 +21,8 @@ public class MainActivity extends AppCompatActivity implements View.OnFocusChang
     EditText etPersonname;
     EditText etPassword;
     Spinner spinner;
+    String[] studentsPlug = {"dhruvil","sai", "shubam","farhan"};
+
     /**
      * memory is getting allocated in the ram for this activity so it is getting created
      * @param savedInstanceState
@@ -33,7 +37,12 @@ public class MainActivity extends AppCompatActivity implements View.OnFocusChang
         etPersonname.setOnFocusChangeListener(this);
         spinner = findViewById(R.id.spinner);
         spinner.setOnItemSelectedListener(this);
+
+        ListView studentsListViewSocket = findViewById(R.id.listview);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,studentsPlug);
+        studentsListViewSocket.setAdapter(adapter);
 /*
+
         Button mButton;
         mButton = new Button(this);
         mButton.setText("login");*/
