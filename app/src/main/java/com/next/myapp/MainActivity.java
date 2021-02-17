@@ -8,6 +8,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.AlarmClock;
 import android.util.Log;
+import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -25,25 +26,28 @@ public class MainActivity extends AppCompatActivity implements View.OnFocusChang
     EditText etPersonname;
     EditText etPassword;
     Spinner spinner;
-    String[] studentsPlug = {"dhruvil","sai", "shubam","farhan"};
+    String[] studentsPlug = {"dhruvil", "sai", "shubam", "farhan"};
 
     /**
      * memory is getting allocated in the ram for this activity so it is getting created
+     *
      * @param savedInstanceState
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);  //layout inflater
-       // Toast.makeText(this, "created", Toast.LENGTH_SHORT).show();
-        Log.i(TAG,"i am in oncreate");// i = info
+        // Toast.makeText(this, "created", Toast.LENGTH_SHORT).show();
+        Log.i(TAG, "i am in oncreate");// i = info
         etPersonname = findViewById(R.id.etPersonName);
         etPersonname.setOnFocusChangeListener(this);
         spinner = findViewById(R.id.spinner);
         spinner.setOnItemSelectedListener(this);
 
         ListView studentsListViewSocket = findViewById(R.id.listview);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,studentsPlug);
+        registerForContextMenu(studentsListViewSocket);
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, studentsPlug);
         studentsListViewSocket.setAdapter(adapter);
 /*
 
@@ -52,54 +56,79 @@ public class MainActivity extends AppCompatActivity implements View.OnFocusChang
         mButton.setText("login");*/
     }
 
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
+        getMenuInflater().inflate(R.menu.student_list_context_menu, menu);
+    }
+
+    @Override
+    public boolean onContextItemSelected(@NonNull MenuItem item) {
+        super.onContextItemSelected(item);
+        switch (item.getItemId()) {
+            case R.id.add_menuitem:
+                Toast.makeText(this, "adding a student", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.update_menuitem:
+                Toast.makeText(this, "updating a student", Toast.LENGTH_SHORT).show();
+
+                break;
+            case R.id.delete_menuitem:
+                Toast.makeText(this, "deleting a student", Toast.LENGTH_SHORT).show();
+
+                break;
+        }
+        return true;
+    }
+
     /**
      * the activity is starting i.e v can see and tap button on the screen
      */
     @Override
     protected void onStart() {
         super.onStart();
-        Log.v(TAG,"i am in onstart"); //v = verbose
+        Log.v(TAG, "i am in onstart"); //v = verbose
 
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        Log.w(TAG,"i am in onresume");//w = warning
+        Log.w(TAG, "i am in onresume");//w = warning
 
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        Log.e(TAG,"i am in onpause"); //e = error
+        Log.e(TAG, "i am in onpause"); //e = error
 
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        Log.d(TAG,"i am in onstop"); // d= debug
+        Log.d(TAG, "i am in onstop"); // d= debug
 
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        Log.i(TAG,"i am in ondestroy");
+        Log.i(TAG, "i am in ondestroy");
 
     }
 
     public void mobiClickHandler(View view) {
-        Log.i(TAG,"i am in clickhandler");
+        Log.i(TAG, "i am in clickhandler");
 
-        switch (view.getId()){
+        switch (view.getId()) {
             case R.id.buttonlogin:
-                Intent hIntent = new Intent(MainActivity.this,HomeActivity.class);//breakpoint -- please stop the execution when you reach this point
+                Intent hIntent = new Intent(MainActivity.this, HomeActivity.class);//breakpoint -- please stop the execution when you reach this point
                 EditText nameEditText;
                 nameEditText = findViewById(R.id.etPersonName);
                 String name = nameEditText.getText().toString();
-                hIntent.putExtra("studentsname",name);
+                hIntent.putExtra("studentsname", name);
                 startActivity(hIntent);
 
                 break;
@@ -107,11 +136,11 @@ public class MainActivity extends AppCompatActivity implements View.OnFocusChang
                 EditText pwdEditText;
                 pwdEditText = findViewById(R.id.etPassword);
                 String pwd = pwdEditText.getText().toString();
-                Intent dialIntent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:"+pwd));
+                Intent dialIntent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + pwd));
                 startActivity(dialIntent);
                 break;
             case R.id.buttonalarm:
-                createAlarm("milk boiled",20,06);
+                createAlarm("milk boiled", 20, 06);
                 break;
         }
     }
@@ -129,10 +158,9 @@ public class MainActivity extends AppCompatActivity implements View.OnFocusChang
 
     @Override
     public void onFocusChange(View view, boolean isFocussed) {
-        if(isFocussed){
+        if (isFocussed) {
             Toast.makeText(this, "is focussed", Toast.LENGTH_SHORT).show();
-        }
-        else{
+        } else {
             Toast.makeText(this, "lost focus", Toast.LENGTH_SHORT).show();
 
         }
@@ -158,26 +186,26 @@ public class MainActivity extends AppCompatActivity implements View.OnFocusChang
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-         super.onCreateOptionsMenu(menu);
+        super.onCreateOptionsMenu(menu);
         MenuInflater menuInflater = getMenuInflater();
         //inflating a baloon --- main_menu.xml
-        menuInflater.inflate(R.menu.main_menu,menu);
+        menuInflater.inflate(R.menu.main_menu, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-         super.onOptionsItemSelected(item);
-         switch (item.getItemId()){
-           case  R.id.settings_menu:
-               Toast.makeText(this, "settings was selected", Toast.LENGTH_SHORT).show();
-             break;
-             case R.id.logout:
-                 Toast.makeText(this, "logout was selected", Toast.LENGTH_SHORT).show();
+        super.onOptionsItemSelected(item);
+        switch (item.getItemId()) {
+            case R.id.settings_menu:
+                Toast.makeText(this, "settings was selected", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.logout:
+                Toast.makeText(this, "logout was selected", Toast.LENGTH_SHORT).show();
 
-                 break;
+                break;
 
-         }
+        }
         return true;
     }
 }
