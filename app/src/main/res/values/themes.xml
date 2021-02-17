@@ -23,7 +23,7 @@
 
     <style name="Theme.Myapp.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
-    <style name="mobifontstyle">
+    <style name="mobifontstyle" parent="Theme.AppCompat.DayNight.DarkActionBar">
         <item name="android:textStyle">bold</item>
         <item name="background">@color/white</item>
         <item name="android:textColor">@color/common_google_signin_btn_text_light_focused</item>
