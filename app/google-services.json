@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "264267328071",
+    "project_id": "brookside-11af7",
+    "storage_bucket": "brookside-11af7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:264267328071:android:4c2f0d8d8cea85351bdf62",
+        "android_client_info": {
+          "package_name": "com.app.brookside"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "264267328071-ffdpdmgs80aa8c53mdeqtoh6bnmrbtkn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAob2uTvk0Gszpzk4yeY6Qd_VgxYfJUy9o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "264267328071-ffdpdmgs80aa8c53mdeqtoh6bnmrbtkn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:264267328071:android:92e12cb0ba8151921bdf62",
+        "android_client_info": {
+          "package_name": "com.next.myapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "264267328071-ffdpdmgs80aa8c53mdeqtoh6bnmrbtkn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAob2uTvk0Gszpzk4yeY6Qd_VgxYfJUy9o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "264267328071-ffdpdmgs80aa8c53mdeqtoh6bnmrbtkn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

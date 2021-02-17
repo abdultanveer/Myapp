@@ -1,5 +1,6 @@
 package com.next.myapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -7,6 +8,9 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.AlarmClock;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -30,7 +34,7 @@ public class MainActivity extends AppCompatActivity implements View.OnFocusChang
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main);  //layout inflater
        // Toast.makeText(this, "created", Toast.LENGTH_SHORT).show();
         Log.i(TAG,"i am in oncreate");// i = info
         etPersonname = findViewById(R.id.etPersonName);
@@ -144,5 +148,36 @@ public class MainActivity extends AppCompatActivity implements View.OnFocusChang
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Toast.makeText(this, "back button was pressed", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+         super.onCreateOptionsMenu(menu);
+        MenuInflater menuInflater = getMenuInflater();
+        //inflating a baloon --- main_menu.xml
+        menuInflater.inflate(R.menu.main_menu,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+         super.onOptionsItemSelected(item);
+         switch (item.getItemId()){
+           case  R.id.settings_menu:
+               Toast.makeText(this, "settings was selected", Toast.LENGTH_SHORT).show();
+             break;
+             case R.id.logout:
+                 Toast.makeText(this, "logout was selected", Toast.LENGTH_SHORT).show();
+
+                 break;
+
+         }
+        return true;
     }
 }
