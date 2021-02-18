@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity implements View.OnFocusChang
         setContentView(R.layout.activity_main);  //layout inflater
         // Toast.makeText(this, "created", Toast.LENGTH_SHORT).show();
         Log.i(TAG, "i am in oncreate");// i = info
-
+/*
         ConstraintLayout constraintLayout = findViewById(R.id.constraintlayout);
 
         Button sampleButton = new Button(this);
@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity implements View.OnFocusChang
         registerForContextMenu(studentsListViewSocket);
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, studentsPlug);
-        studentsListViewSocket.setAdapter(adapter);
+        studentsListViewSocket.setAdapter(adapter);*/
 /*
 
         Button mButton;
