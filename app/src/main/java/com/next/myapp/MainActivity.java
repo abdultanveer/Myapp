@@ -2,6 +2,7 @@ package com.next.myapp;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -39,6 +40,13 @@ public class MainActivity extends AppCompatActivity implements View.OnFocusChang
         setContentView(R.layout.activity_main);  //layout inflater
         // Toast.makeText(this, "created", Toast.LENGTH_SHORT).show();
         Log.i(TAG, "i am in oncreate");// i = info
+
+        ConstraintLayout constraintLayout = findViewById(R.id.constraintlayout);
+
+        Button sampleButton = new Button(this);
+        sampleButton.setText("sample button");  //samplebutton.text = "sample button"
+        constraintLayout.addView(sampleButton);
+
         etPersonname = findViewById(R.id.etPersonName);
         etPersonname.setOnFocusChangeListener(this);
         spinner = findViewById(R.id.spinner);
