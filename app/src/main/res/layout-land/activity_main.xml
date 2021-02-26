@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/etPersonName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="42dp"
@@ -25,6 +25,6 @@
         android:ems="10"
         android:hint="enter password"
         android:inputType="textPassword"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+        app:layout_constraintStart_toStartOf="@+id/etPersonName"
+        app:layout_constraintTop_toBottomOf="@+id/etPersonName" />
 </androidx.constraintlayout.widget.ConstraintLayout>

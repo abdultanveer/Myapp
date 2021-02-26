@@ -11,7 +11,7 @@
     android:background="@drawable/rectangle_blue_gradient"
     tools:context=".MainActivity">
 
-    <com.next.myapp.EditTextWithClear
+    <EditText
         android:id="@+id/etPersonName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -103,7 +103,7 @@
         app:layout_constraintTop_toBottomOf="@+id/spinner" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/textViewresult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="26dp"
@@ -118,7 +118,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
-        app:layout_constraintStart_toStartOf="@+id/textView2"
+        app:layout_constraintStart_toStartOf="@+id/textViewresult"
         app:layout_constraintTop_toTopOf="@+id/etPassword" />
 
     <TextView

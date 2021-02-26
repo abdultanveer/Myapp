@@ -2,7 +2,6 @@ package com.next.myapp;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -15,11 +14,9 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnFocusChangeListener, AdapterView.OnItemSelectedListener {
@@ -38,6 +35,7 @@ public class MainActivity extends AppCompatActivity implements View.OnFocusChang
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);  //layout inflater
+        etPersonname = findViewById(R.id.etPersonName);
         // Toast.makeText(this, "created", Toast.LENGTH_SHORT).show();
         Log.i(TAG, "i am in oncreate");// i = info
 /*
@@ -132,13 +130,10 @@ public class MainActivity extends AppCompatActivity implements View.OnFocusChang
 
         switch (view.getId()) {
             case R.id.buttonlogin:
-                Intent hIntent = new Intent(MainActivity.this, HomeActivity.class);//breakpoint -- please stop the execution when you reach this point
-                EditText nameEditText;
-                nameEditText = findViewById(R.id.etPersonName);
-                String name = nameEditText.getText().toString();
-                hIntent.putExtra("studentsname", name);
-                startActivity(hIntent);
-
+                //startHomeActivity();
+                String name = etPersonname.getText().toString();
+                TextView resultTextView = findViewById(R.id.textViewresult);
+                resultTextView.setText(name);
                 break;
             case R.id.buttoncancel:
                 EditText pwdEditText;
@@ -151,6 +146,15 @@ public class MainActivity extends AppCompatActivity implements View.OnFocusChang
                 createAlarm("milk boiled", 20, 06);
                 break;
         }
+    }
+
+    private void startHomeActivity() {
+        Intent hIntent = new Intent(MainActivity.this, HomeActivity.class);//breakpoint -- please stop the execution when you reach this point
+        EditText nameEditText;
+        nameEditText = findViewById(R.id.etPersonName);
+        String name = nameEditText.getText().toString();
+        hIntent.putExtra("studentsname", name);
+        startActivity(hIntent);
     }
 
 
