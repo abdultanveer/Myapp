@@ -11,23 +11,24 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Myapp">
-        <activity android:name=".SharedPrefsActivity">
+        <activity android:name=".RecyclerActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SampleActivity"></activity>
+        <activity android:name=".SharedPrefsActivity">
+
+        </activity>
+        <activity android:name=".SampleActivity" />
         <activity
             android:name=".NavDrawerActivity"
             android:label="@string/title_activity_nav_drawer"
             android:theme="@style/Theme.Myapp.NoActionBar" />
         <activity android:name=".SimpleActivity" />
         <activity android:name=".HomeActivity" />
-        <activity android:name=".MainActivity">
-
-        </activity>
+        <activity android:name=".MainActivity"></activity>
     </application>
 
 </manifest>
