@@ -41,8 +41,13 @@ public class DbAccessObject {//DAO
       int titleIndex = cursor.getColumnIndexOrThrow(NoteEntry.COLUMN_NAME_TITLE); //index = 1
         int noteIndex = cursor.getColumnIndexOrThrow(NoteEntry.COLUMN_NAME_NOTE); //index = 2
        return cursor.getString(titleIndex) + "\n"+cursor.getString(noteIndex);
-
     }
+
+    public  Cursor getAllRows(){
+        Cursor cursor = database.query(NoteEntry.TABLE_NAME,null,null,null,null,null,null);
+        return  cursor;
+    }
+
     public void updateRow(){}
     public void deleteRow(){}
 }

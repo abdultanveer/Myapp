@@ -2,10 +2,15 @@ package com.next.myapp.database;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.CursorAdapter;
 import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
+import com.next.myapp.database.NotesContract.NoteEntry;
 
 import com.next.myapp.R;
 
@@ -20,6 +25,7 @@ import com.next.myapp.R;
 public class TodoActivity extends AppCompatActivity {
     EditText titleEditText, noteEditText;
     DbAccessObject dao;
+    ListView notesListView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,9 +34,21 @@ public class TodoActivity extends AppCompatActivity {
         noteEditText = findViewById(R.id.etNote);
         dao = new DbAccessObject(this);
         dao.openDb();
+        populateNotesListview();
+
     }
 
+    private void populateNotesListview() {
+        notesListView = findViewById(R.id.notesListview);
+        Cursor cursor = dao.getAllRows();
+        SimpleCursorAdapter adapter = new SimpleCursorAdapter(this,
+                android.R.layout.simple_list_item_1,   //layout of each row
+                cursor,                                //data
+                    new String[]{NoteEntry.COLUMN_NAME_TITLE}, // column from which we want to get the data
+                   new int[]{android.R.id.text1} );             //textview in which we want to put the data
 
+        notesListView.setAdapter(adapter);
+    }
 
 
     public void saveDataDb(View view) {
