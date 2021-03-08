@@ -42,10 +42,10 @@ public class TodoActivity extends AppCompatActivity {
         notesListView = findViewById(R.id.notesListview);
         Cursor cursor = dao.getAllRows();
         SimpleCursorAdapter adapter = new SimpleCursorAdapter(this,
-                android.R.layout.simple_list_item_1,   //layout of each row
+                android.R.layout.simple_list_item_2,   //layout of each row
                 cursor,                                //data
-                    new String[]{NoteEntry.COLUMN_NAME_TITLE}, // column from which we want to get the data
-                   new int[]{android.R.id.text1} );             //textview in which we want to put the data
+                    new String[]{NoteEntry.COLUMN_NAME_TITLE,NoteEntry.COLUMN_NAME_NOTE}, // column from which we want to get the data
+                   new int[]{android.R.id.text1,android.R.id.text2} );             //textview in which we want to put the data
 
         notesListView.setAdapter(adapter);
     }
