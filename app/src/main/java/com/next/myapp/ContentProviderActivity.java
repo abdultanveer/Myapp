@@ -25,4 +25,5 @@ public class ContentProviderActivity extends AppCompatActivity {
                 new String[]{"body"}, new int[] {android.R.id.text1});
         listView.setAdapter(adapter);
     }
+    //this is how i push code
 }
