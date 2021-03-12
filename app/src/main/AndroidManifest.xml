@@ -12,17 +12,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Myapp">
-        <activity android:name=".AsyncActivity">
+        <activity android:name=".MyAsyncActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ContentProviderActivity">
+        <activity android:name=".AsyncActivity">
 
         </activity>
-        <activity android:name=".database.TodoActivity"></activity>
+        <activity android:name=".ContentProviderActivity"></activity>
+        <activity android:name=".database.TodoActivity" />
         <activity android:name=".RecyclerActivity" />
         <activity android:name=".SharedPrefsActivity" />
         <activity android:name=".SampleActivity" />
