@@ -25,11 +25,29 @@ public class MyDownloadTask  extends AsyncTask<String,Integer, Bitmap> {
         mProgressBar.setVisibility(View.VISIBLE);
     }
 
-    //doInBackground executes in a seperate thread
+    //doInBackground executes in a seperate thread -- background guy
     @Override
     protected Bitmap doInBackground(String... strings) {
         Log.i(TAG,"url is"+strings[0]);
-        mProgressBar.setProgress(50);
+
+        for(int i=1; i<21;i++){
+            try {
+                publishProgress(i*5);
+                Thread.sleep(150);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+
+
+       // mProgressBar.setProgress(50);
         return null;
+    }
+
+    //guy standing next to the blackboard to update the cricket score
+    @Override
+    protected void onProgressUpdate(Integer... values) {
+        super.onProgressUpdate(values);
+        mProgressBar.setProgress(values[0]);
     }
 }
