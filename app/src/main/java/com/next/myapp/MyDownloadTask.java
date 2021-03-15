@@ -50,4 +50,9 @@ public class MyDownloadTask  extends AsyncTask<String,Integer, Bitmap> {
         super.onProgressUpdate(values);
         mProgressBar.setProgress(values[0]);
     }
+
+    @Override
+    protected void onPostExecute(Bitmap bitmap) {
+        super.onPostExecute(bitmap);
+    }
 }

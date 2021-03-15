@@ -4,7 +4,7 @@
 
     <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
     <uses-permission android:name="android.permission.READ_SMS" />
-
+    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -12,6 +12,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Myapp">
+        <receiver
+            android:name=".SmsReceiver">
+            <intent-filter>
+                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
+            </intent-filter>
+
+        </receiver>
+
         <activity android:name=".MyAsyncActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,10 +27,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".AsyncActivity">
-
-        </activity>
-        <activity android:name=".ContentProviderActivity"></activity>
+        <activity android:name=".AsyncActivity"></activity>
+        <activity android:name=".ContentProviderActivity" />
         <activity android:name=".database.TodoActivity" />
         <activity android:name=".RecyclerActivity" />
         <activity android:name=".SharedPrefsActivity" />
